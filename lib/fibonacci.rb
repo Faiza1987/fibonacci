@@ -10,22 +10,24 @@
 def fibonacci(n)
   # raise NotImplementedError
 
+  if n == 0
+    return 0
+  end
+
   if n == nil || n < 0
     raise ArgumentError
   else
-    # a = 0
-    # b = 1
-    # for i in (0...n / 2)
-    #   # print "#{a}, #{b}, "
-    #   a += b
-    #   b += a
-      
-    # end
-
-    f = ((1.618034 ** n) - ((-0.618034) ** n)) / Math.sqrt(5)
+    a = 0
+    b = 1
+    for i in (1...n)
+      temp = b
+      b += a
+      a = temp
+    end
+    # Golden Ratio
+    # f = ((1.618034 ** n) - ((-0.618034) ** n)) / Math.sqrt(5)
   end
 
-  return f.round(0)
+  return b
+  # return f.round(0)
 end
-
-puts fibonacci(0)
